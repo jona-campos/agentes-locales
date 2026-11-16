@@ -49,7 +49,7 @@
 - [x] Agente 3: explicador de repositorio (8 de 10 en una app Flutter propia)
   - [x] Medir en un proyecto privado (7 de 10; ~2 s por búsqueda con 6603 trozos; indexar tardó 21 min)
 
-## Preparar el proyecto para GitHub (docs/plans/2026-11-15-publicar-en-github.md)
+## Preparar el proyecto para GitHub (docs/plans/2026-11-15-publicar-en-github-aplicado-completamente-2026-11-15.md)
 
 - [x] Visto bueno del plan y de las 6 decisiones
 - [x] `.gitignore` y `.gitleaks.toml`
@@ -57,5 +57,5 @@
 - [x] `README.md` raíz y `LICENSE` (MIT)
 - [x] Pruebas (56 + 59) y gitleaks sobre lo preparado, sin hallazgos
 - [x] `git init` en `main` y 69 archivos preparados (673 KB)
-- [ ] Primer commit (espera confirmación)
-- [ ] Crear el repositorio en GitHub y push (espera confirmación)
+- [x] Primer commit en `main` (50f33ec, confirmado por el usuario)
+- [x] Crear el repositorio público en GitHub y push (confirmado por el usuario)

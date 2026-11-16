@@ -1,6 +1,6 @@
 # Plan: preparar el proyecto para GitHub
 
-Estado: aprobado el 2026-11-15. Pasos 1 a 6 hechos; faltan el commit y el push, cada uno con su confirmación.
+Estado: aplicado completamente el 2026-11-15. El repositorio se creó público directamente, por decisión del usuario (la recomendación 1 era pasar antes por privado), y los commits llevan el correo `noreply` de GitHub.
 
 ## Objetivo
 
