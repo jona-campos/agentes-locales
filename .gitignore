@@ -1,0 +1,16 @@
+# entornos y cachés
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# reglas de Semgrep: clon de terceros con su propia licencia (ver README)
+revisor-seguridad/reglas/semgrep-rules/
+
+# salidas de los agentes
+.revisor/
+.agentes/
+
+# informes de escaneos sobre proyectos reales: no se publican
+docs/ejemplos/informe-github-*.md

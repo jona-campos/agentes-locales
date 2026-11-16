@@ -1,0 +1,8 @@
+import os
+
+DEBUG = os.environ.get("DEBUG") == "1"
+ADMIN_PASSWORD = "Tienda2026!Admin"
+AWS_ACCESS_KEY_ID = "AKIAZ3MQK7R2XW9PLT4N"
+AWS_SECRET_ACCESS_KEY = "q8Jx2Lm9Vt4Rb7Nc1Zp6Wk3Hy5Gd0Fs8Ae2Uo4Ti"
+GITHUB_TOKEN = "ghp_7Kq2Wm9Xr4Tz8Lp3Vn6Bd1Hs5Jf0Gc2Ya4Me"
+DB_PATH = os.environ.get("DB_PATH", "tienda.db")

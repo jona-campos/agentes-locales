@@ -1,0 +1,22 @@
+[
+  {"id": "SECRETO-CLAVE-ADMIN", "archivo": "config.py", "linea": 4, "contiene": "ADMIN_PASSWORD = \"", "tipo": "secreto", "real": true},
+  {"id": "SECRETO-AWS-ID", "archivo": "config.py", "linea": 5, "contiene": "AKIA", "tipo": "secreto", "real": true},
+  {"id": "SECRETO-AWS-CLAVE", "archivo": "config.py", "linea": 6, "contiene": "AWS_SECRET_ACCESS_KEY", "tipo": "secreto", "real": true},
+  {"id": "SECRETO-GITHUB", "archivo": "config.py", "linea": 7, "contiene": "ghp_", "tipo": "secreto", "real": true},
+  {"id": "SQLI", "archivo": "app.py", "linea": 20, "contiene": "db.execute(f\"SELECT", "tipo": "inyeccion-sql", "real": true},
+  {"id": "EVAL-USUARIO", "archivo": "app.py", "linea": 27, "contiene": "eval(expresion)", "tipo": "ejecucion-codigo", "real": true},
+  {"id": "COMANDO-SHELL", "archivo": "app.py", "linea": 33, "contiene": "\"ping -n 1 \" + host, shell=True", "tipo": "inyeccion-comandos", "real": true},
+  {"id": "PICKLE", "archivo": "app.py", "linea": 39, "contiene": "pickle.loads", "tipo": "deserializacion", "real": true},
+  {"id": "YAML-LOAD", "archivo": "app.py", "linea": 45, "contiene": "yaml.load(", "tipo": "deserializacion", "real": true},
+  {"id": "TLS-SIN-VERIFICAR", "archivo": "app.py", "linea": 51, "contiene": "verify=False", "tipo": "tls", "real": true},
+  {"id": "MD5-CLAVE", "archivo": "app.py", "linea": 58, "contiene": "hashlib.md5(clave", "tipo": "cripto-debil", "real": true},
+  {"id": "FLASK-DEBUG", "archivo": "app.py", "linea": 75, "contiene": "debug=True", "tipo": "configuracion", "real": true},
+  {"id": "XSS-DOM", "archivo": "static/app.js", "linea": 3, "contiene": "innerHTML = \"Hola, \" + nombre", "tipo": "xss", "real": true},
+  {"id": "DEP-FLASK", "archivo": "requirements.txt", "linea": 1, "contiene": "flask==0.12.2", "tipo": "dependencia", "real": true},
+  {"id": "DEP-PYYAML", "archivo": "requirements.txt", "linea": 2, "contiene": "pyyaml==5.3", "tipo": "dependencia", "real": true},
+  {"id": "DEP-REQUESTS", "archivo": "requirements.txt", "linea": 3, "contiene": "requests==2.19.1", "tipo": "dependencia", "real": true},
+  {"id": "FP-SHELL-FIJO", "archivo": "app.py", "linea": 65, "contiene": "\"git rev-parse --short HEAD\", shell=True", "tipo": "inyeccion-comandos", "real": false},
+  {"id": "FP-EVAL-CONSTANTE", "archivo": "app.py", "linea": 66, "contiene": "eval(\"2 + 2\")", "tipo": "ejecucion-codigo", "real": false},
+  {"id": "FP-MD5-HUELLA", "archivo": "app.py", "linea": 71, "contiene": "hashlib.md5(f.read())", "tipo": "cripto-debil", "real": false},
+  {"id": "FP-INNERHTML-CONSTANTE", "archivo": "static/app.js", "linea": 6, "contiene": "innerHTML = \"<b>\" + titulo", "tipo": "xss", "real": false}
+]

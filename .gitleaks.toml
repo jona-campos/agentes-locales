@@ -1,0 +1,7 @@
+# Las claves de estas carpetas son falsas: están plantadas para probar el revisor de seguridad.
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "fixtures y salidas guardadas de los escáneres"
+paths = ['''revisor-seguridad/fixtures/''', '''revisor-seguridad/tests/''']

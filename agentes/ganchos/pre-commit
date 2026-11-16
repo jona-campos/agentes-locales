@@ -1,0 +1,16 @@
+#!/bin/sh
+# Bloquea el commit si lo preparado trae un secreto. Falso positivo: git commit --no-verify
+if ! command -v gitleaks >/dev/null 2>&1; then
+  echo "pre-commit: no encuentro gitleaks, no puedo revisar secretos. Instalalo o usa --no-verify." >&2
+  exit 1
+fi
+if ! gitleaks git --pre-commit --staged --redact --no-banner --log-level error; then
+  echo "pre-commit: gitleaks vio un posible secreto en lo preparado. Quitalo, o usa --no-verify si es un falso positivo." >&2
+  exit 1
+fi
+# core.hooksPath global apaga los hooks de .git/hooks: se encadena al del repo si existe
+local_hook="$(git rev-parse --git-dir)/hooks/pre-commit"
+if [ -x "$local_hook" ]; then
+  exec "$local_hook" "$@"
+fi
+exit 0

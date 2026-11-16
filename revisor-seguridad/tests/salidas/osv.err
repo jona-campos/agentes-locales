@@ -1,0 +1,5 @@
+Scanning dir {RAIZ}
+Starting filesystem walk for root: C:\
+Scanned {RAIZ}\requirements.txt file and found 3 packages
+End status: 2 dirs visited, 7 inodes visited, 1 Extract calls, 1.5756ms elapsed, 1.5756ms wall time
+Loaded PyPI local db from C:\Users\usuario\AppData\Local/osv-scalibr/PyPI/all.zip

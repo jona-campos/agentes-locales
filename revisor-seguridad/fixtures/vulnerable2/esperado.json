@@ -1,0 +1,21 @@
+[
+  {"id": "SECRETO-STRIPE", "archivo": "servicio.py", "linea": 13, "contiene": "sk_live_", "tipo": "secreto", "real": true},
+  {"id": "COMANDO-OS-SYSTEM", "archivo": "servicio.py", "linea": 20, "contiene": "os.system(f\"convert {archivo}", "tipo": "inyeccion-comandos", "real": true},
+  {"id": "COMANDO-SHELL-JSON", "archivo": "servicio.py", "linea": 27, "contiene": "subprocess.run(orden, shell=True", "tipo": "inyeccion-comandos", "real": true},
+  {"id": "JWT-SIN-FIRMA", "archivo": "servicio.py", "linea": 34, "contiene": "\"verify_signature\": False", "tipo": "autenticacion", "real": true},
+  {"id": "RUTA-SIN-VALIDAR", "archivo": "servicio.py", "linea": 41, "contiene": "send_file(os.path.join(BASE, nombre))", "tipo": "path-traversal", "real": true},
+  {"id": "SHA1-CLAVE", "archivo": "servicio.py", "linea": 45, "contiene": "hashlib.sha1(clave.encode())", "tipo": "cripto-debil", "real": true},
+  {"id": "RANDOM-TOKEN", "archivo": "servicio.py", "linea": 49, "contiene": "random.random()", "tipo": "aleatoriedad-debil", "real": true},
+  {"id": "MKTEMP", "archivo": "servicio.py", "linea": 53, "contiene": "tempfile.mktemp", "tipo": "archivo-temporal", "real": true},
+  {"id": "XSS-REFLEJADO", "archivo": "servidor.js", "linea": 7, "contiene": "req.query.q", "tipo": "xss", "real": true},
+  {"id": "COMANDO-EXEC", "archivo": "servidor.js", "linea": 11, "contiene": "\"git log --oneline \" + req.query.rama", "tipo": "inyeccion-comandos", "real": true},
+  {"id": "DEP-JINJA2", "archivo": "requirements.txt", "linea": 1, "contiene": "jinja2==2.10", "tipo": "dependencia", "real": true},
+  {"id": "DEP-PYJWT", "archivo": "requirements.txt", "linea": 2, "contiene": "pyjwt==1.5.0", "tipo": "dependencia", "real": true},
+  {"id": "DEP-URLLIB3", "archivo": "requirements.txt", "linea": 3, "contiene": "urllib3==1.24.1", "tipo": "dependencia", "real": true},
+  {"id": "FP-CAMPO-PASSWORD", "archivo": "servicio.py", "linea": 12, "contiene": "PASSWORD_FIELD = \"password\"", "tipo": "secreto", "real": false},
+  {"id": "FP-SUBPROCESS-LISTA", "archivo": "servicio.py", "linea": 57, "contiene": "subprocess.run([\"ls\", \"-la\", BASE]", "tipo": "inyeccion-comandos", "real": false},
+  {"id": "FP-RANDOM-TEMA", "archivo": "servicio.py", "linea": 61, "contiene": "random.choice(TEMAS)", "tipo": "aleatoriedad-debil", "real": false},
+  {"id": "FP-SHA1-ETAG", "archivo": "servicio.py", "linea": 65, "contiene": "hashlib.sha1(contenido)", "tipo": "cripto-debil", "real": false},
+  {"id": "FP-ASSERT-PRUEBA", "archivo": "tests/test_servicio.py", "linea": 5, "contiene": "assert tema_del_dia()", "tipo": "calidad", "real": false},
+  {"id": "FP-EXEC-CONSTANTE", "archivo": "servidor.js", "linea": 15, "contiene": "exec(\"git status --short\"", "tipo": "inyeccion-comandos", "real": false}
+]
