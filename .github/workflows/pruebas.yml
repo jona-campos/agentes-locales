@@ -1,0 +1,31 @@
+name: pruebas
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  agentes:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m unittest discover -s agentes/tests -t .
+
+  revisor:
+    # revisor/escaneo.py busca semgrep.exe y bandit.exe junto al Python del venv: por eso Windows y venv
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: revisor-seguridad
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m venv .venv
+      - run: .venv\Scripts\python.exe -m pip install bandit semgrep
+      - run: .venv\Scripts\python.exe -m unittest discover -s tests -t .

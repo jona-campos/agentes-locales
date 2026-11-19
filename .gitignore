@@ -14,3 +14,6 @@ revisor-seguridad/reglas/semgrep-rules/
 
 # informes de escaneos sobre proyectos reales: no se publican
 docs/ejemplos/informe-github-*.md
+
+# carpeta de trabajo con el CV (datos personales): nunca al repositorio
+Claude outputs/

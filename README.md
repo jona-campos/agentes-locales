@@ -1,5 +1,7 @@
 # Agentes locales
 
+[![pruebas](https://github.com/jona-campos/agentes-locales/actions/workflows/pruebas.yml/badge.svg)](https://github.com/jona-campos/agentes-locales/actions/workflows/pruebas.yml)
+
 Siete herramientas de línea de comandos que usan modelos de lenguaje en mi laptop, con Ollama. El código, los logs, los diffs y los audios que procesan no salen del equipo.
 
 Las hice para tareas que repito al programar y que no quería mandar a un servicio en la nube. Corren en una laptop con GPU integrada Intel Arc y 16 GB de memoria compartida, así que usan modelos de 7B o menos.
