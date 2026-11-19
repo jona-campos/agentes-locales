@@ -15,6 +15,10 @@ from revisor import escaneo, informe
 from tests.test_hallazgos import RAIZ
 
 PROYECTO = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+# Las pruebas que cuentan hallazgos de los cuatro escáneres necesitan los escáneres reales y las reglas de Semgrep;
+# en un equipo sin ellos (por ejemplo la CI de GitHub) se omiten, no fallan.
+ESCANERES_REALES = all(os.path.isfile(r) for r in escaneo.rutas_por_defecto().values()) and os.path.isdir(escaneo.REGLAS)
+SIN_ESCANERES = "faltan escáneres reales (gitleaks, osv-scanner, semgrep, bandit) o las reglas de Semgrep"
 SECRETOS = ("ghp_7Kq2", "AKIAZ3MQ", "q8Jx2Lm9", "Tienda2026")
 
 
@@ -39,6 +43,7 @@ class Cli(unittest.TestCase):
         self.assertEqual(self.r.returncode, 0, self.r.stderr[-2000:])
         self.assertEqual(len(glob.glob(os.path.join(self.copia, ".revisor", "informe-*.md"))), 1)
 
+    @unittest.skipUnless(ESCANERES_REALES, SIN_ESCANERES)
     def test_el_json_tiene_todo_sin_revisar_y_las_dependencias(self):
         with open(glob.glob(os.path.join(self.copia, ".revisor", "informe-*.json"))[0], encoding="utf-8") as f:
             d = json.load(f)
@@ -67,6 +72,7 @@ class Errores(unittest.TestCase):
         self.assertEqual(r.returncode, 2)
         self.assertIn("no existe", r.stderr)
 
+    @unittest.skipUnless(ESCANERES_REALES, SIN_ESCANERES)
     def test_un_escaner_que_falla_no_frena_a_los_demas(self):
         with tempfile.TemporaryDirectory() as tmp:
             hallazgos, avisos = escaneo.ejecutar(RAIZ, tmp, rutas={"gitleaks": os.path.join(tmp, "no-esta.exe")})
